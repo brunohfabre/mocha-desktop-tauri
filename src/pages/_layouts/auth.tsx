@@ -1,20 +1,10 @@
-import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 import LogoDarkVector from '@/assets/logo-dark.svg'
 import LogoLightVector from '@/assets/logo-light.svg'
 import { useTheme } from '@/components/theme-provider'
-import { useAuthStore } from '@/stores/auth'
-
 export function AuthLayout() {
-  const navigate = useNavigate()
-
-  const token = useAuthStore((state) => state.token)
-
   const { theme, setTheme } = useTheme()
-
-  if (token) {
-    navigate('/', { replace: true })
-  }
 
   function handleChangeTheme() {
     if (theme === 'light') {
@@ -32,7 +22,7 @@ export function AuthLayout() {
             <img
               src={theme === 'light' ? LogoLightVector : LogoDarkVector}
               alt="Mocha"
-              className="h-7"
+              className="w-10"
             />
           </div>
         </button>

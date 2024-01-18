@@ -1,21 +1,11 @@
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
-import { useAuthStore } from '@/stores/auth'
+import { Sidebar } from '@/components/sidebar'
 
 export function AppLayout() {
-  const navigate = useNavigate()
-
-  const token = useAuthStore((state) => state.token)
-
-  if (!token) {
-    navigate('/sign-in', {
-      replace: true,
-    })
-  }
-
   return (
-    <div>
-      <span>app layout</span>
+    <div className="min-h-screen w-full flex">
+      <Sidebar />
 
       <Outlet />
     </div>
