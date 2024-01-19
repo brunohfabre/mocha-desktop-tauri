@@ -30,7 +30,7 @@ export function AuthLayout() {
 
       <Outlet />
 
-      <footer className="p-4">
+      <footer className="px-4 py-8">
         <p className="text-xs text-center text-zinc-500">
           By signing in, you agree to our{' '}
           <Link
