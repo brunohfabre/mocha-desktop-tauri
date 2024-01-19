@@ -15,7 +15,7 @@ export function AuthLayout() {
   }
 
   return (
-    <div className="min-h-screen w-full flex flex-col">
+    <div className="min-h-screen w-full flex flex-col antialiased">
       <header className="max-w-7xl w-full mx-auto p-4">
         <button type="button" onClick={handleChangeTheme}>
           <div>

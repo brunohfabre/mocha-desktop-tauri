@@ -10,9 +10,8 @@ export function Home() {
   }
 
   return (
-    <div className="flex-1 flex flex-col p-4 gap-4">
-      <span>home</span>
-      <span>{JSON.stringify(user, null, 2)}</span>
+    <div className="flex-1 flex items-center justify-center">
+      <span>mocha</span>
     </div>
   )
 }

@@ -53,7 +53,7 @@ export function CreateName() {
           onSubmit={form.handleSubmit(createName)}
           className="flex flex-col max-w-lg w-full gap-8"
         >
-          <strong className="text-2xl font-medium">Create name</strong>
+          <strong className="text-xl font-semibold">Create name</strong>
 
           <FormField
             control={form.control}

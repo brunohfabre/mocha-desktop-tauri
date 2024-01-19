@@ -2,14 +2,16 @@ import { Route, Routes } from 'react-router-dom'
 
 import { AppLayout } from '@/pages/_layouts/app'
 import { AuthLayout } from '@/pages/_layouts/auth'
+import { InternalLayout } from '@/pages/_layouts/internal'
 import { AccountVerification } from '@/pages/account-verification'
 import { CreateName } from '@/pages/create-name'
 import { Home } from '@/pages/home'
 import { PrivacyPolicy } from '@/pages/privacy-policy'
+import { Profile } from '@/pages/profile'
 import { SignIn } from '@/pages/sign-in'
 import { TermsOfService } from '@/pages/terms-of-service'
 
-import { Protected } from './Protected'
+import { Protected } from './protected'
 
 export function Router() {
   return (
@@ -27,6 +29,10 @@ export function Router() {
       <Route element={<Protected isProtected />}>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Home />} />
+        </Route>
+
+        <Route element={<InternalLayout />}>
+          <Route path="/profile" element={<Profile />} />
         </Route>
 
         <Route path="/create-name" element={<CreateName />} />

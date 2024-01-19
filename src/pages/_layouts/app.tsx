@@ -4,7 +4,7 @@ import { Sidebar } from '@/components/sidebar'
 
 export function AppLayout() {
   return (
-    <div className="min-h-screen w-full flex">
+    <div className="min-h-screen w-full flex antialiased">
       <Sidebar />
 
       <Outlet />

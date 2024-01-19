@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import LogoDarkVector from '@/assets/logo-dark.svg'
 import LogoLightVector from '@/assets/logo-light.svg'
 import { useAuthStore } from '@/stores/auth'
-import { CaretDown, Moon, Sun } from '@phosphor-icons/react'
+import { CaretDown, Moon, Sun, CaretUpDown } from '@phosphor-icons/react'
 
 import { useTheme } from './theme-provider'
 import {
@@ -16,7 +16,6 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from './ui/alert-dialog'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Button } from './ui/button'
@@ -24,10 +23,12 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
 
 export function Sidebar() {
+  const navigate = useNavigate()
   const { theme, setTheme } = useTheme()
 
   const clearCredentials = useAuthStore((state) => state.clearCredentials)
@@ -41,6 +42,10 @@ export function Sidebar() {
     } else {
       setTheme('light')
     }
+  }
+
+  function handleNavigateToProfile() {
+    navigate('/profile')
   }
 
   function handleSignOut() {
@@ -88,6 +93,27 @@ export function Sidebar() {
           </Button>
         </header>
 
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <div className="flex items-center justify-between px-3 h-14 border-b">
+              <span className="text-sm">Workspace #1</span>
+
+              <CaretUpDown className="w-4 h-4" />
+            </div>
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent className="w-60">
+            <DropdownMenuItem>workspace #1</DropdownMenuItem>
+            <DropdownMenuItem>workspace #2</DropdownMenuItem>
+            <DropdownMenuItem>workspace #3</DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>All workspaces</DropdownMenuItem>
+            <DropdownMenuSeparator />
+
+            <DropdownMenuItem>+ Create workspace</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
         <div className="flex-1 flex flex-col gap-1 p-3">
           <Button type="button" variant="ghost" className="flex justify-start">
             Collections
@@ -107,6 +133,12 @@ export function Sidebar() {
           <p className="text-sm">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           </p>
+        </div>
+
+        <div className="flex flex-col gap-1 px-3 pb-3">
+          <Button type="button" variant="ghost" className="flex justify-start">
+            Notifications
+          </Button>
         </div>
 
         <DropdownMenu>
@@ -129,7 +161,9 @@ export function Sidebar() {
           </DropdownMenuTrigger>
 
           <DropdownMenuContent className="w-60">
-            <DropdownMenuItem>Profile</DropdownMenuItem>
+            <DropdownMenuItem onClick={handleNavigateToProfile}>
+              Profile
+            </DropdownMenuItem>
             <DropdownMenuItem
               onClick={() => setSignOutAlertDialogVisible(true)}
             >
