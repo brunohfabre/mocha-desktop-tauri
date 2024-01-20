@@ -115,16 +115,32 @@ export function Sidebar() {
         </DropdownMenu>
 
         <div className="flex-1 flex flex-col gap-1 p-3">
-          <Button type="button" variant="ghost" className="flex justify-start">
+          <Button
+            type="button"
+            variant="ghost"
+            className="flex justify-start px-3"
+          >
             Collections
           </Button>
-          <Button type="button" variant="ghost" className="flex justify-start">
+          <Button
+            type="button"
+            variant="ghost"
+            className="flex justify-start px-3"
+          >
             Notes
           </Button>
-          <Button type="button" variant="ghost" className="flex justify-start">
+          <Button
+            type="button"
+            variant="ghost"
+            className="flex justify-start px-3"
+          >
             Databases
           </Button>
-          <Button type="button" variant="ghost" className="flex justify-start">
+          <Button
+            type="button"
+            variant="ghost"
+            className="flex justify-start px-3"
+          >
             Passwords
           </Button>
         </div>
@@ -133,12 +149,6 @@ export function Sidebar() {
           <p className="text-sm">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           </p>
-        </div>
-
-        <div className="flex flex-col gap-1 px-3 pb-3">
-          <Button type="button" variant="ghost" className="flex justify-start">
-            Notifications
-          </Button>
         </div>
 
         <DropdownMenu>

@@ -47,35 +47,36 @@ export function CreateName() {
   }
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center">
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(createName)}
-          className="flex flex-col max-w-lg w-full gap-8"
-        >
-          <strong className="text-xl font-semibold">Create name</strong>
+    <div className="flex-1 flex justify-center px-4 py-8">
+      <div className="flex flex-col max-w-lg w-full gap-2">
+        <strong className="text-xl font-semibold">Create name</strong>
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(createName)}
+            className="flex flex-col gap-8 border p-4 rounded-lg"
+          >
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem className="space-y-1">
+                  <FormLabel>Name</FormLabel>
 
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem className="space-y-1">
-                <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Name" {...field} />
+                  </FormControl>
 
-                <FormControl>
-                  <Input placeholder="Name" {...field} />
-                </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <div className="flex justify-end">
-            <Button>Create name</Button>
-          </div>
-        </form>
-      </Form>
+            <div className="flex justify-end">
+              <Button>Save</Button>
+            </div>
+          </form>
+        </Form>
+      </div>{' '}
     </div>
   )
 }

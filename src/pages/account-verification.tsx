@@ -20,7 +20,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowLeft } from '@phosphor-icons/react'
 
 const formSchema = z.object({
-  code: z.string().regex(/[a-z]{5}-[a-z]{5}-[a-z]{5}/),
+  code: z.string().regex(/[a-zA-Z]{5}-[a-zA-Z]{5}-[a-zA-Z]{5}/),
 })
 type FormData = z.infer<typeof formSchema>
 

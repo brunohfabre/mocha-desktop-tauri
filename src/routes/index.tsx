@@ -6,6 +6,7 @@ import { InternalLayout } from '@/pages/_layouts/internal'
 import { AccountVerification } from '@/pages/account-verification'
 import { CreateName } from '@/pages/create-name'
 import { Home } from '@/pages/home'
+import { Notifications } from '@/pages/notifications'
 import { PrivacyPolicy } from '@/pages/privacy-policy'
 import { Profile } from '@/pages/profile'
 import { SignIn } from '@/pages/sign-in'
@@ -32,10 +33,11 @@ export function Router() {
         </Route>
 
         <Route element={<InternalLayout />}>
-          <Route path="/profile" element={<Profile />} />
-        </Route>
+          <Route path="/create-name" element={<CreateName />} />
 
-        <Route path="/create-name" element={<CreateName />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/notifications" element={<Notifications />} />
+        </Route>
       </Route>
 
       <Route path="/terms-of-service" element={<TermsOfService />} />
