@@ -13,7 +13,6 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { useAuthStore } from '@/stores/auth'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 const formSchema = z.object({
@@ -21,27 +20,15 @@ const formSchema = z.object({
 })
 type FormData = z.infer<typeof formSchema>
 
-export function CreateName() {
+export function CreateWorkspace() {
   const navigate = useNavigate()
-
-  const token = useAuthStore((state) => state.token)
-  const user = useAuthStore((state) => state.user)
-  const setCredentials = useAuthStore((state) => state.setCredentials)
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
   })
 
-  async function createName(data: FormData) {
+  async function createWorkspace(data: FormData) {
     console.log(data)
-
-    setCredentials({
-      token,
-      user: {
-        ...user!,
-        name: 'John Doe',
-      },
-    })
 
     navigate('/')
   }
@@ -49,10 +36,10 @@ export function CreateName() {
   return (
     <div className="flex-1 flex justify-center px-4 py-8">
       <div className="flex flex-col max-w-lg w-full gap-2">
-        <strong className="text-lg font-semibold">Create name</strong>
+        <strong className="text-lg font-semibold">Create workspace</strong>
         <Form {...form}>
           <form
-            onSubmit={form.handleSubmit(createName)}
+            onSubmit={form.handleSubmit(createWorkspace)}
             className="flex flex-col gap-8 border p-4 rounded-lg"
           >
             <FormField
@@ -72,7 +59,7 @@ export function CreateName() {
             />
 
             <div className="flex justify-end">
-              <Button>Save</Button>
+              <Button>Create</Button>
             </div>
           </form>
         </Form>

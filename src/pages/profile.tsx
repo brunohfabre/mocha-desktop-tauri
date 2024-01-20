@@ -35,7 +35,7 @@ export function Profile() {
   return (
     <div className="max-w-3xl w-full mx-auto px-4 py-8 flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <strong className="text-xl font-semibold">About you</strong>
+        <strong className="text-lg font-semibold">About you</strong>
 
         <Form {...form}>
           <form
@@ -66,7 +66,7 @@ export function Profile() {
       </div>
 
       <div className="flex flex-col gap-2">
-        <strong className="text-xl font-semibold">Danger zone</strong>
+        <strong className="text-lg font-semibold">Danger zone</strong>
 
         <div className="border rounded-lg flex flex-col p-4 gap-8">
           <div className="flex justify-between items-center">

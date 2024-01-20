@@ -48,6 +48,22 @@ export function Sidebar() {
     navigate('/profile')
   }
 
+  function handleNavigateToCollections() {
+    navigate('/collections')
+  }
+
+  function handleNavigateToWorkspaces() {
+    navigate('/workspaces')
+  }
+
+  function handleNavigateToCreateWorkspace() {
+    navigate('/create-workspace')
+  }
+
+  function handleNavigateToPreferences() {
+    navigate('/workspaces/123132')
+  }
+
   function handleSignOut() {
     clearCredentials()
   }
@@ -107,10 +123,14 @@ export function Sidebar() {
             <DropdownMenuItem>workspace #2</DropdownMenuItem>
             <DropdownMenuItem>workspace #3</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>All workspaces</DropdownMenuItem>
+            <DropdownMenuItem onClick={handleNavigateToWorkspaces}>
+              All workspaces
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
 
-            <DropdownMenuItem>+ Create workspace</DropdownMenuItem>
+            <DropdownMenuItem onClick={handleNavigateToCreateWorkspace}>
+              + Create workspace
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
 
@@ -119,6 +139,7 @@ export function Sidebar() {
             type="button"
             variant="ghost"
             className="flex justify-start px-3"
+            onClick={handleNavigateToCollections}
           >
             Collections
           </Button>
@@ -126,6 +147,7 @@ export function Sidebar() {
             type="button"
             variant="ghost"
             className="flex justify-start px-3"
+            disabled
           >
             Notes
           </Button>
@@ -133,6 +155,7 @@ export function Sidebar() {
             type="button"
             variant="ghost"
             className="flex justify-start px-3"
+            disabled
           >
             Databases
           </Button>
@@ -140,8 +163,17 @@ export function Sidebar() {
             type="button"
             variant="ghost"
             className="flex justify-start px-3"
+            disabled
           >
             Passwords
+          </Button>
+          <Button
+            type="button"
+            variant="ghost"
+            className="flex justify-start px-3"
+            onClick={handleNavigateToPreferences}
+          >
+            Preferences
           </Button>
         </div>
 
