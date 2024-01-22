@@ -5,6 +5,7 @@ import { AuthLayout } from '@/pages/_layouts/auth'
 import { InternalLayout } from '@/pages/_layouts/internal'
 import { AccountVerification } from '@/pages/account-verification'
 import { Collections } from '@/pages/collections'
+import { Collection } from '@/pages/collections/collection'
 import { CreateName } from '@/pages/create-name'
 import { Home } from '@/pages/home'
 import { PrivacyPolicy } from '@/pages/privacy-policy'
@@ -44,6 +45,8 @@ export function Router() {
           <Route path="/workspaces" element={<Workspaces />} />
           <Route path="/workspaces/:id" element={<Workspace />} />
           <Route path="/create-workspace" element={<CreateWorkspace />} />
+
+          <Route path="/collections/:id" element={<Collection />} />
         </Route>
       </Route>
 

@@ -35,14 +35,14 @@ export function AuthLayout() {
           By signing in, you agree to our{' '}
           <Link
             to="/terms-of-service"
-            className="underline text-gray-500 hover:text-gray-700"
+            className="underline text-gray-500 hover:text-gray-700 dark:hover:text-gray-700"
           >
             Terms of Service
           </Link>{' '}
           and{' '}
           <Link
             to="/privacy-policy"
-            className="underline text-gray-500 hover:text-gray-700"
+            className="underline text-gray-500 hover:text-gray-700 dark:hover:text-gray-700"
           >
             Privacy Policy
           </Link>

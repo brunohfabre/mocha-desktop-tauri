@@ -61,7 +61,7 @@ export function Sidebar() {
   }
 
   function handleNavigateToPreferences() {
-    navigate('/workspaces/123132')
+    navigate(`/workspaces/${window.crypto.randomUUID()}`)
   }
 
   function handleSignOut() {
@@ -143,7 +143,7 @@ export function Sidebar() {
           >
             Collections
           </Button>
-          <Button
+          {/* <Button
             type="button"
             variant="ghost"
             className="flex justify-start px-3"
@@ -166,7 +166,7 @@ export function Sidebar() {
             disabled
           >
             Passwords
-          </Button>
+          </Button> */}
           <Button
             type="button"
             variant="ghost"
@@ -177,11 +177,11 @@ export function Sidebar() {
           </Button>
         </div>
 
-        <div className="border rounded-lg mb-3 mx-3 p-4">
+        {/* <div className="border rounded-lg mb-3 mx-3 p-4">
           <p className="text-sm">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           </p>
-        </div>
+        </div> */}
 
         <DropdownMenu>
           <DropdownMenuTrigger>

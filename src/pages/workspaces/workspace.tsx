@@ -39,6 +39,8 @@ export function Workspace() {
 
   const [deleteAlertDialogVisible, setDeleteAlertDialogVisible] =
     useState(false)
+  const [removeAlertDialogVisible, setRemoveAlertDialogVisible] =
+    useState(false)
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -74,6 +76,26 @@ export function Workspace() {
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction onClick={handleDelete}>
               Yes, Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <AlertDialog
+        open={removeAlertDialogVisible}
+        onOpenChange={setRemoveAlertDialogVisible}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Remove member</AlertDialogTitle>
+            <AlertDialogDescription>
+              Really want to remove this member from workspace?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleDelete}>
+              Yes, Remove
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -145,37 +167,82 @@ export function Workspace() {
           </TabsContent>
 
           <TabsContent value="members">
-            <div className="flex flex-col gap-8 mt-8 border rounded-lg p-4">
-              {/* <div className="grid grid-cols-3 items-center">
-                <Avatar className="w-12 h-12">
-                  <AvatarImage src="https://github.com/shadcn.png" />
-                  <AvatarFallback>JD</AvatarFallback>
-                </Avatar>
+            <div className="flex flex-col gap-2 mt-8">
+              <strong className="text-lg font-semibold">Members</strong>
 
-                <div className="flex justify-end">
-                  <span className="text-sm">OWNER</span>
-                </div>
-              </div> */}
+              <div className="flex flex-col border rounded-lg p-4 divide-y">
+                <div className="flex justify-between items-center gap-4 py-4 first:pt-0 last:pb-0">
+                  <Avatar className="w-12 h-12">
+                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarFallback>JD</AvatarFallback>
+                  </Avatar>
 
-              <div className="flex justify-between items-center gap-4">
-                <Avatar className="w-12 h-12">
-                  <AvatarImage src="https://github.com/shadcn.png" />
-                  <AvatarFallback>JD</AvatarFallback>
-                </Avatar>
+                  <div className="flex-1 flex flex-col">
+                    <p className="text-sm font-medium">Jhon Doe</p>
+                    <span className="text-sm text-zinc-500">
+                      jhondoe@email.com
+                    </span>
+                  </div>
 
-                <div className="flex-1 flex flex-col">
-                  <p className="text-base font-medium">Jhon Doe</p>
-                  <span className="text-sm text-zinc-500">
-                    jhondoe@email.com
-                  </span>
-                </div>
+                  <div className="flex mr-8">
+                    <span className="text-sm font-medium">ADMIN</span>
+                  </div>
 
-                <div className="flex mr-8">
-                  <span className="text-sm">ADMIN</span>
+                  <div className="flex justify-end min-w-32"></div>
                 </div>
 
-                <div className="flex justify-end">
-                  <Button type="button">Remove</Button>
+                <div className="flex justify-between items-center gap-4 py-4 first:pt-0 last:pb-0">
+                  <Avatar className="w-12 h-12">
+                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarFallback>JD</AvatarFallback>
+                  </Avatar>
+
+                  <div className="flex-1 flex flex-col">
+                    <p className="text-sm font-medium">Jhon Doe</p>
+                    <span className="text-sm text-zinc-500">
+                      jhondoe@email.com
+                    </span>
+                  </div>
+
+                  <div className="flex mr-8">
+                    <span className="text-sm font-medium">ADMIN</span>
+                  </div>
+
+                  <div className="flex justify-end min-w-32">
+                    <Button
+                      type="button"
+                      onClick={() => setRemoveAlertDialogVisible(true)}
+                    >
+                      Remove
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-center gap-4 py-4 first:pt-0 last:pb-0">
+                  <Avatar className="w-12 h-12">
+                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarFallback>JD</AvatarFallback>
+                  </Avatar>
+
+                  <div className="flex-1 flex flex-col">
+                    <p className="text-sm font-medium">Jhon Doe</p>
+                    <span className="text-sm text-zinc-500">
+                      jhondoe@email.com
+                    </span>
+                  </div>
+
+                  <div className="flex mr-8">
+                    <span className="text-sm font-medium">ADMIN</span>
+                  </div>
+
+                  <div className="flex justify-end min-w-32">
+                    <Button
+                      type="button"
+                      onClick={() => setRemoveAlertDialogVisible(true)}
+                    >
+                      Remove
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>

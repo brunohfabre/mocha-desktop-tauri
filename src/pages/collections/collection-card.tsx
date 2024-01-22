@@ -2,11 +2,11 @@ import { useNavigate } from 'react-router-dom'
 
 import { CaretRight } from '@phosphor-icons/react'
 
-export function WorkspaceCard({ index }: { index: number }) {
+export function CollectionCard() {
   const navigate = useNavigate()
 
   function handleSelectWorkspace() {
-    navigate('/')
+    navigate(`/collections/${window.crypto.randomUUID()}`)
   }
 
   return (
@@ -14,7 +14,7 @@ export function WorkspaceCard({ index }: { index: number }) {
       className="flex border rounded-lg p-4 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900"
       onClick={handleSelectWorkspace}
     >
-      <span className="flex-1 text-sm text-start">Workspace #{index + 1}</span>
+      <span className="flex-1 text-sm text-start">Collection</span>
 
       <CaretRight className="w-4 h-4 text-zinc-500" weight="bold" />
     </button>
