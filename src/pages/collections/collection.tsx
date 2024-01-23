@@ -7,7 +7,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { CaretDown, DotsThree, Folder } from '@phosphor-icons/react'
+import { CaretDown, DotsThree, Folder, FolderOpen } from '@phosphor-icons/react'
 import * as Accordion from '@radix-ui/react-accordion'
 
 export function Collection() {
@@ -32,104 +32,95 @@ export function Collection() {
         </DropdownMenu>
 
         <ScrollArea className="flex-1 h-32">
-          <Accordion.Root type="multiple">
-            <Accordion.Item value="item-1" className="flex flex-col">
-              <Accordion.Trigger className="flex gap-2 h-8 px-3 items-center">
-                <Folder className="w-4 h-4" weight="bold" />
-                <span className="text-sm">Folder 1</span>
-              </Accordion.Trigger>
+          <div className="flex-1 flex flex-col py-2">
+            <Accordion.Root type="multiple">
+              <Accordion.Item value="item-1" className="flex flex-col">
+                <Accordion.Trigger className="flex gap-2 h-8 px-3 items-center group hover:bg-muted">
+                  <Folder
+                    className="w-4 h-4 group-data-[state=open]:hidden text-zinc-600"
+                    weight="bold"
+                  />
+                  <FolderOpen
+                    className="w-4 h-4 group-data-[state=closed]:hidden text-zinc-600"
+                    weight="bold"
+                  />
+                  <span className="text-sm">Folder</span>
+                </Accordion.Trigger>
 
-              <Accordion.Content className="flex flex-col pl-3">
-                <button className="flex h-8 px-3 items-center">
-                  <span className="text-xs text-green-500 font-semibold">
-                    GET
-                  </span>
-                  <span className="text-sm">Any get request</span>
-                </button>
+                <Accordion.Content className="flex flex-col pl-3">
+                  <button className="flex h-8 px-3 items-center justify-start hover:bg-muted">
+                    <span className="text-xs text-green-500 font-semibold w-11 text-left">
+                      GET
+                    </span>
+                    <span className="text-sm">Any get request</span>
+                  </button>
 
-                <button className="flex h-8 px-3 items-center">
-                  <span className="text-xs text-green-500 font-semibold">
-                    GET
-                  </span>
-                  <span className="text-sm">Any get request</span>
-                </button>
+                  <button className="flex h-8 px-3 items-center justify-start hover:bg-muted">
+                    <span className="text-xs text-indigo-500 font-semibold w-11 text-left">
+                      POST
+                    </span>
+                    <span className="text-sm">Any post request</span>
+                  </button>
 
-                <button className="flex h-8 px-3 items-center">
-                  <span className="text-xs text-green-500 font-semibold">
-                    GET
-                  </span>
-                  <span className="text-sm">Any get request</span>
-                </button>
-              </Accordion.Content>
-            </Accordion.Item>
-          </Accordion.Root>
+                  <button className="flex h-8 px-3 items-center justify-start hover:bg-muted">
+                    <span className="text-xs text-amber-500 font-semibold w-11 text-left">
+                      PUT
+                    </span>
+                    <span className="text-sm">Any put request</span>
+                  </button>
 
-          <button className="flex h-8 px-3 items-center">
-            <span className="text-xs text-indigo-500 font-semibold">POST</span>
-            <span className="text-sm">Any post request</span>
-          </button>
+                  <button className="flex h-8 px-3 items-center justify-start hover:bg-muted">
+                    <span className="text-xs text-orange-500 font-semibold w-11 text-left">
+                      PTCH
+                    </span>
+                    <span className="text-sm">Any patch request</span>
+                  </button>
 
-          <Accordion.Root type="multiple">
-            <Accordion.Item value="item-1" className="flex flex-col">
-              <Accordion.Trigger className="flex gap-2 h-8 px-3 items-center">
-                <Folder className="w-4 h-4" weight="bold" />
-                <span className="text-sm">Folder 2</span>
-              </Accordion.Trigger>
+                  <button className="flex h-8 px-3 items-center justify-start hover:bg-muted">
+                    <span className="text-xs text-red-500 font-semibold w-11 text-left">
+                      DEL
+                    </span>
+                    <span className="text-sm">Any delete request</span>
+                  </button>
+                </Accordion.Content>
+              </Accordion.Item>
+            </Accordion.Root>
 
-              <Accordion.Content className="flex flex-col pl-3">
-                <button className="flex h-8 px-3 items-center">
-                  <span className="text-xs text-green-500 font-semibold">
-                    GET{' '}
-                  </span>
-                  <span className="text-sm">Any get request</span>
-                </button>
+            <button className="flex h-8 px-3 items-center justify-start hover:bg-muted">
+              <span className="text-xs text-green-500 font-semibold w-11 text-left">
+                GET
+              </span>
+              <span className="text-sm">Any get request</span>
+            </button>
 
-                <button className="flex h-8 px-3 items-center">
-                  <span className="text-xs text-green-500 font-semibold">
-                    GET
-                  </span>
-                  <span className="text-sm">Any get request</span>
-                </button>
+            <button className="flex h-8 px-3 items-center justify-start hover:bg-muted">
+              <span className="text-xs text-indigo-500 font-semibold w-11 text-left">
+                POST
+              </span>
+              <span className="text-sm">Any post request</span>
+            </button>
 
-                <Accordion.Root type="multiple">
-                  <Accordion.Item value="item-1" className="flex flex-col">
-                    <Accordion.Trigger className="flex gap-2 h-8 px-3 items-center">
-                      <Folder className="w-4 h-4" weight="bold" />
-                      <span className="text-sm">Folder 3</span>
-                    </Accordion.Trigger>
+            <button className="flex h-8 px-3 items-center justify-start hover:bg-muted">
+              <span className="text-xs text-amber-500 font-semibold w-11 text-left">
+                PUT
+              </span>
+              <span className="text-sm">Any put request</span>
+            </button>
 
-                    <Accordion.Content className="flex flex-col pl-3">
-                      <button className="flex h-8 px-3 items-center">
-                        <span className="text-xs text-green-500 font-semibold">
-                          GET
-                        </span>
-                        <span className="text-sm">Any get request</span>
-                      </button>
+            <button className="flex h-8 px-3 items-center justify-start hover:bg-muted">
+              <span className="text-xs text-orange-500 font-semibold w-11 text-left">
+                PTCH
+              </span>
+              <span className="text-sm">Any patch request</span>
+            </button>
 
-                      <button className="flex h-8 px-3 items-center">
-                        <span className="text-xs text-green-500 font-semibold">
-                          GET
-                        </span>
-                        <span className="text-sm">Any get request</span>
-                      </button>
-
-                      <button className="flex h-8 px-3 items-center">
-                        <span className="text-xs text-green-500 font-semibold">
-                          GET
-                        </span>
-                        <span className="text-sm">Any get request</span>
-                      </button>
-                    </Accordion.Content>
-                  </Accordion.Item>
-                </Accordion.Root>
-              </Accordion.Content>
-            </Accordion.Item>
-          </Accordion.Root>
-
-          <button className="flex h-8 px-3 items-center">
-            <span className="text-xs text-amber-500 font-semibold">PUT</span>
-            <span className="text-sm">Any put request</span>
-          </button>
+            <button className="flex h-8 px-3 items-center justify-start hover:bg-muted">
+              <span className="text-xs text-red-500 font-semibold w-11 text-left">
+                DEL
+              </span>
+              <span className="text-sm">Any delete request</span>
+            </button>
+          </div>
         </ScrollArea>
 
         <DropdownMenu>
