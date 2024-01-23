@@ -11,7 +11,7 @@ export function CollectionCard() {
 
   return (
     <button
-      className="flex border rounded-lg p-4 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900"
+      className="flex border rounded-lg p-4 transition-colors hover:bg-muted"
       onClick={handleSelectWorkspace}
     >
       <span className="flex-1 text-sm text-start">Collection</span>

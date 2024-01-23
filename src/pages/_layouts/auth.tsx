@@ -1,7 +1,7 @@
 import { Link, Outlet } from 'react-router-dom'
 
-import LogoDarkVector from '@/assets/logo-dark.svg'
-import LogoLightVector from '@/assets/logo-light.svg'
+import LogoDarkVector from '@/assets/logo-dark.png'
+import LogoLightVector from '@/assets/logo-light.png'
 import { useTheme } from '@/components/theme-provider'
 export function AuthLayout() {
   const { theme, setTheme } = useTheme()

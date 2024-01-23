@@ -10,6 +10,9 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { CaretDown, DotsThree, Folder, FolderOpen } from '@phosphor-icons/react'
 import * as Accordion from '@radix-ui/react-accordion'
 
+import { Request } from './request'
+import { Response } from './response'
+
 export function Collection() {
   return (
     <div className="flex-1 flex divide-x">
@@ -47,7 +50,7 @@ export function Collection() {
                   <span className="text-sm">Folder</span>
                 </Accordion.Trigger>
 
-                <Accordion.Content className="flex flex-col pl-3">
+                <Accordion.Content className="flex flex-col pl-3 data-[state=open]:pb-2">
                   <button className="flex h-8 px-3 items-center justify-start hover:bg-muted">
                     <span className="text-xs text-green-500 font-semibold w-11 text-left">
                       GET
@@ -142,12 +145,9 @@ export function Collection() {
         </DropdownMenu>
       </div>
 
-      <div className="flex-1 p-4">
-        <p>request</p>
-      </div>
-      <div className="flex-1 p-4">
-        <p>response</p>
-      </div>
+      <Request />
+
+      <Response />
     </div>
   )
 }

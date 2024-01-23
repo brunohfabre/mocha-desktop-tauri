@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import LogoDarkVector from '@/assets/logo-dark.svg'
-import LogoLightVector from '@/assets/logo-light.svg'
+import LogoDarkVector from '@/assets/logo-dark.png'
+import LogoLightVector from '@/assets/logo-light.png'
 import { useAuthStore } from '@/stores/auth'
-import { CaretDown, Moon, Sun, CaretUpDown } from '@phosphor-icons/react'
+import { CaretDown, Moon, Sun, CaretUpDown, Cube } from '@phosphor-icons/react'
 
 import { useTheme } from './theme-provider'
 import {
@@ -91,8 +91,8 @@ export function Sidebar() {
       </AlertDialog>
 
       <div className="w-64 border-r flex flex-col">
-        <header className="border-b h-14 px-3 flex items-center justify-between">
-          <Link to="/">
+        <header className="border-b h-14 flex items-center justify-between pr-3">
+          <Link to="/" className="px-3 h-14 flex items-center">
             <img
               src={theme === 'light' ? LogoLightVector : LogoDarkVector}
               alt="Mocha"
@@ -111,7 +111,7 @@ export function Sidebar() {
 
         <DropdownMenu>
           <DropdownMenuTrigger>
-            <div className="flex items-center justify-between px-3 h-14 border-b">
+            <div className="flex items-center justify-between px-3 h-14 border-b hover:bg-muted">
               <span className="text-sm">Workspace #1</span>
 
               <CaretUpDown className="w-4 h-4" />
@@ -134,58 +134,60 @@ export function Sidebar() {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <div className="flex-1 flex flex-col gap-1 p-3">
-          <Button
+        <div className="flex-1 flex flex-col">
+          <span className="px-3 pt-3 pb-0.5 text-xs text-zinc-500">
+            General
+          </span>
+          <button
             type="button"
-            variant="ghost"
-            className="flex justify-start px-3"
-            onClick={handleNavigateToCollections}
+            className="flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted"
           >
+            <Cube size={16} />
             Collections
-          </Button>
-          {/* <Button
+          </button>
+          <button
             type="button"
-            variant="ghost"
-            className="flex justify-start px-3"
-            disabled
+            className="flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted"
           >
+            <Cube size={16} />
             Notes
-          </Button>
-          <Button
+          </button>
+          <button
             type="button"
-            variant="ghost"
-            className="flex justify-start px-3"
-            disabled
+            className="flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted"
           >
+            <Cube size={16} />
             Databases
-          </Button>
-          <Button
+          </button>
+          <button
             type="button"
-            variant="ghost"
-            className="flex justify-start px-3"
-            disabled
+            className="flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted"
           >
+            <Cube size={16} />
             Passwords
-          </Button> */}
-          <Button
+          </button>
+
+          <span className="px-3 pt-3 pb-0.5 text-xs text-zinc-500">
+            Workspace
+          </span>
+          <button
             type="button"
-            variant="ghost"
-            className="flex justify-start px-3"
-            onClick={handleNavigateToPreferences}
+            className="flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted"
           >
+            <Cube size={16} />
             Preferences
-          </Button>
+          </button>
         </div>
 
-        {/* <div className="border rounded-lg mb-3 mx-3 p-4">
+        <div className="border rounded-lg mb-3 mx-3 p-3">
           <p className="text-sm">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           </p>
-        </div> */}
+        </div>
 
         <DropdownMenu>
           <DropdownMenuTrigger>
-            <div className="border-t h-14 flex px-3 items-center gap-2">
+            <div className="border-t h-14 flex px-3 items-center gap-2 hover:bg-muted">
               <Avatar>
                 <AvatarImage src="https://github.com/shadcn.png" />
                 <AvatarFallback>JD</AvatarFallback>

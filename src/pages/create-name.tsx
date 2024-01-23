@@ -48,7 +48,7 @@ export function CreateName() {
 
   return (
     <div className="flex-1 flex justify-center px-4 py-8">
-      <div className="flex flex-col max-w-lg w-full gap-2">
+      <div className="flex flex-col max-w-xl w-full gap-2">
         <strong className="text-lg font-semibold">Create name</strong>
         <Form {...form}>
           <form

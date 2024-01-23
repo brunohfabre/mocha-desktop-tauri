@@ -1,5 +1,9 @@
+import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
+import LogoDarkImage from '@/assets/logo-dark.png'
+import LogoLightImage from '@/assets/logo-light.png'
+import { useTheme } from '@/components/theme-provider'
 import { AppLayout } from '@/pages/_layouts/app'
 import { AuthLayout } from '@/pages/_layouts/auth'
 import { InternalLayout } from '@/pages/_layouts/internal'
@@ -19,6 +23,39 @@ import { Workspace } from '@/pages/workspaces/workspace'
 import { Protected } from './protected'
 
 export function Router() {
+  const { theme, setTheme } = useTheme()
+
+  const [loading, setLoading] = useState(true)
+
+  function handleChangeTheme() {
+    if (theme === 'light') {
+      setTheme('dark')
+    } else {
+      setTheme('light')
+    }
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, Math.round(Math.random() * 1000))
+  }, [])
+
+  if (loading) {
+    return (
+      <div
+        className="min-h-screen w-full flex items-center justify-center"
+        onClick={handleChangeTheme}
+      >
+        <img
+          src={theme === 'light' ? LogoLightImage : LogoDarkImage}
+          alt="Mocha"
+          className="w-24 animate-bounce"
+        />
+      </div>
+    )
+  }
+
   return (
     <Routes>
       <Route element={<Protected isProtected={false} />}>

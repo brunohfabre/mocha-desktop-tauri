@@ -14,7 +14,6 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -28,6 +27,8 @@ import { Input } from '@/components/ui/input'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { zodResolver } from '@hookform/resolvers/zod'
 
+import { Members } from './members'
+
 const formSchema = z.object({
   name: z.string().min(1),
 })
@@ -38,8 +39,6 @@ export function Workspace() {
   const navigate = useNavigate()
 
   const [deleteAlertDialogVisible, setDeleteAlertDialogVisible] =
-    useState(false)
-  const [removeAlertDialogVisible, setRemoveAlertDialogVisible] =
     useState(false)
 
   const form = useForm<FormData>({
@@ -76,26 +75,6 @@ export function Workspace() {
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction onClick={handleDelete}>
               Yes, Delete
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-
-      <AlertDialog
-        open={removeAlertDialogVisible}
-        onOpenChange={setRemoveAlertDialogVisible}
-      >
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Remove member</AlertDialogTitle>
-            <AlertDialogDescription>
-              Really want to remove this member from workspace?
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete}>
-              Yes, Remove
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -166,87 +145,7 @@ export function Workspace() {
             </div>
           </TabsContent>
 
-          <TabsContent value="members">
-            <div className="flex flex-col gap-2 mt-8">
-              <strong className="text-lg font-semibold">Members</strong>
-
-              <div className="flex flex-col border rounded-lg p-4 divide-y">
-                <div className="flex justify-between items-center gap-4 py-4 first:pt-0 last:pb-0">
-                  <Avatar className="w-12 h-12">
-                    <AvatarImage src="https://github.com/shadcn.png" />
-                    <AvatarFallback>JD</AvatarFallback>
-                  </Avatar>
-
-                  <div className="flex-1 flex flex-col">
-                    <p className="text-sm font-medium">Jhon Doe</p>
-                    <span className="text-sm text-zinc-500">
-                      jhondoe@email.com
-                    </span>
-                  </div>
-
-                  <div className="flex mr-8">
-                    <span className="text-sm font-medium">ADMIN</span>
-                  </div>
-
-                  <div className="flex justify-end min-w-32"></div>
-                </div>
-
-                <div className="flex justify-between items-center gap-4 py-4 first:pt-0 last:pb-0">
-                  <Avatar className="w-12 h-12">
-                    <AvatarImage src="https://github.com/shadcn.png" />
-                    <AvatarFallback>JD</AvatarFallback>
-                  </Avatar>
-
-                  <div className="flex-1 flex flex-col">
-                    <p className="text-sm font-medium">Jhon Doe</p>
-                    <span className="text-sm text-zinc-500">
-                      jhondoe@email.com
-                    </span>
-                  </div>
-
-                  <div className="flex mr-8">
-                    <span className="text-sm font-medium">ADMIN</span>
-                  </div>
-
-                  <div className="flex justify-end min-w-32">
-                    <Button
-                      type="button"
-                      onClick={() => setRemoveAlertDialogVisible(true)}
-                    >
-                      Remove
-                    </Button>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center gap-4 py-4 first:pt-0 last:pb-0">
-                  <Avatar className="w-12 h-12">
-                    <AvatarImage src="https://github.com/shadcn.png" />
-                    <AvatarFallback>JD</AvatarFallback>
-                  </Avatar>
-
-                  <div className="flex-1 flex flex-col">
-                    <p className="text-sm font-medium">Jhon Doe</p>
-                    <span className="text-sm text-zinc-500">
-                      jhondoe@email.com
-                    </span>
-                  </div>
-
-                  <div className="flex mr-8">
-                    <span className="text-sm font-medium">ADMIN</span>
-                  </div>
-
-                  <div className="flex justify-end min-w-32">
-                    <Button
-                      type="button"
-                      onClick={() => setRemoveAlertDialogVisible(true)}
-                    >
-                      Remove
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </TabsContent>
+          <Members />
         </Tabs>
       </div>
     </>

@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import LogoDarkVector from '@/assets/logo-dark.svg'
-import LogoLightVector from '@/assets/logo-light.svg'
+import LogoDarkVector from '@/assets/logo-dark.png'
+import LogoLightVector from '@/assets/logo-light.png'
 import { useAuthStore } from '@/stores/auth'
 
 import { useTheme } from './theme-provider'
@@ -58,8 +58,8 @@ export function PageHeader() {
         </AlertDialogContent>
       </AlertDialog>
 
-      <div className="border-b h-14 flex justify-between px-3">
-        <Link to="/" className="h-14 flex items-center">
+      <div className="border-b h-14 flex justify-between pr-3">
+        <Link to="/" className="h-14 flex items-center px-3">
           <img
             src={theme === 'light' ? LogoLightVector : LogoDarkVector}
             alt="Mocha"
