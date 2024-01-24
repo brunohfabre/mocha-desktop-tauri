@@ -4,7 +4,17 @@ import { Link, useNavigate } from 'react-router-dom'
 import LogoDarkVector from '@/assets/logo-dark.png'
 import LogoLightVector from '@/assets/logo-light.png'
 import { useAuthStore } from '@/stores/auth'
-import { CaretDown, Moon, Sun, CaretUpDown, Cube } from '@phosphor-icons/react'
+import {
+  CaretDown,
+  Moon,
+  Sun,
+  CaretUpDown,
+  Lock,
+  Gear,
+  Database,
+  NoteBlank,
+  Cube,
+} from '@phosphor-icons/react'
 
 import { useTheme } from './theme-provider'
 import {
@@ -48,20 +58,12 @@ export function Sidebar() {
     navigate('/profile')
   }
 
-  function handleNavigateToCollections() {
-    navigate('/collections')
-  }
-
   function handleNavigateToWorkspaces() {
     navigate('/workspaces')
   }
 
   function handleNavigateToCreateWorkspace() {
     navigate('/create-workspace')
-  }
-
-  function handleNavigateToPreferences() {
-    navigate(`/workspaces/${window.crypto.randomUUID()}`)
   }
 
   function handleSignOut() {
@@ -149,21 +151,21 @@ export function Sidebar() {
             type="button"
             className="flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted"
           >
-            <Cube size={16} />
+            <NoteBlank size={16} />
             Notes
           </button>
           <button
             type="button"
             className="flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted"
           >
-            <Cube size={16} />
+            <Database size={16} />
             Databases
           </button>
           <button
             type="button"
             className="flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted"
           >
-            <Cube size={16} />
+            <Lock size={16} />
             Passwords
           </button>
 
@@ -174,7 +176,7 @@ export function Sidebar() {
             type="button"
             className="flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted"
           >
-            <Cube size={16} />
+            <Gear size={16} />
             Preferences
           </button>
         </div>
