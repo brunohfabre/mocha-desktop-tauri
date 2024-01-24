@@ -1,5 +1,3 @@
-import { MouseEvent } from 'react'
-
 import { X } from '@phosphor-icons/react'
 import * as RadixTabs from '@radix-ui/react-tabs'
 
@@ -25,15 +23,16 @@ export function TabsTrigger({ children, onClose, ...props }: TabsTriggerProps) {
   }
 
   return (
-    <RadixTabs.Trigger
-      className="flex whitespace-nowrap h-10 px-4 items-center gap-3"
-      {...props}
-    >
+    <RadixTabs.Trigger {...props}>
       {children}
 
       {onClose && (
-        <button type="button" onClick={handleClose}>
-          <X />
+        <button
+          type="button"
+          onClick={handleClose}
+          className="w-5 h-5 flex items-center justify-center rounded-md hover:bg-muted"
+        >
+          <X className="w-3 h-3" />
         </button>
       )}
     </RadixTabs.Trigger>
