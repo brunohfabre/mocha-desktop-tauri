@@ -14,24 +14,7 @@ import { CaretLeft, CaretRight } from '@phosphor-icons/react'
 type TabType = { id: string; label: string }
 
 export function Home() {
-  const [tabs, setTabs] = useState<TabType[]>([
-    {
-      id: window.crypto.randomUUID(),
-      label: 'Item 1',
-    },
-    {
-      id: window.crypto.randomUUID(),
-      label: 'Item 2',
-    },
-    {
-      id: window.crypto.randomUUID(),
-      label: 'Item 3',
-    },
-    {
-      id: window.crypto.randomUUID(),
-      label: 'Item 4',
-    },
-  ])
+  const [tabs, setTabs] = useState<TabType[]>([])
   const [tabSelected, setTabSelected] = useState<TabType | null>(null)
 
   const user = useAuthStore((state) => state.user)
