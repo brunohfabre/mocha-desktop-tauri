@@ -12,6 +12,7 @@ import { Collections } from '@/pages/collections'
 import { Collection } from '@/pages/collections/collection'
 import { CreateName } from '@/pages/create-name'
 import { Home } from '@/pages/home'
+import { Notes } from '@/pages/notes'
 import { PrivacyPolicy } from '@/pages/privacy-policy'
 import { Profile } from '@/pages/profile'
 import { SignIn } from '@/pages/sign-in'
@@ -72,6 +73,9 @@ export function Router() {
         <Route element={<AppLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/collections" element={<Collections />} />
+          <Route path="/notes" element={<Notes />} />
+
+          <Route path="/collections/:id" element={<Collection />} />
         </Route>
 
         <Route element={<InternalLayout />}>
@@ -82,8 +86,6 @@ export function Router() {
           <Route path="/workspaces" element={<Workspaces />} />
           <Route path="/workspaces/:id" element={<Workspace />} />
           <Route path="/create-workspace" element={<CreateWorkspace />} />
-
-          <Route path="/collections/:id" element={<Collection />} />
         </Route>
       </Route>
 

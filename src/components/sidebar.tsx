@@ -37,12 +37,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
+import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 
-interface SidebarProps {
-  expanded: boolean
-}
-
-export function Sidebar({ expanded }: SidebarProps) {
+export function Sidebar() {
   const navigate = useNavigate()
   const { theme, setTheme } = useTheme()
 
@@ -50,6 +47,7 @@ export function Sidebar({ expanded }: SidebarProps) {
 
   const [signOutAlertDialogVisible, setSignOutAlertDialogVisible] =
     useState(false)
+  const [expanded, setExpanded] = useState(true)
 
   function handleChangeTheme() {
     if (theme === 'light') {
@@ -69,6 +67,16 @@ export function Sidebar({ expanded }: SidebarProps) {
 
   function handleNavigateToCreateWorkspace() {
     navigate('/create-workspace')
+  }
+
+  function handleNavigateToCollections() {
+    setExpanded(false)
+    navigate('/collections')
+  }
+
+  function handleNavigateToNotes() {
+    setExpanded(false)
+    navigate('/notes')
   }
 
   function handleSignOut() {
@@ -109,7 +117,11 @@ export function Sidebar({ expanded }: SidebarProps) {
             expanded && 'pr-3',
           )}
         >
-          <Link to="/" className="px-3 h-14 flex items-center">
+          <Link
+            to="/"
+            className="px-3 h-14 flex items-center"
+            onClick={() => setExpanded(true)}
+          >
             <img
               src={theme === 'light' ? LogoLightVector : LogoDarkVector}
               alt="Mocha"
@@ -130,19 +142,31 @@ export function Sidebar({ expanded }: SidebarProps) {
 
         <DropdownMenu>
           <DropdownMenuTrigger>
-            <div
-              className={cn(
-                'flex items-center justify-between px-3 h-14 border-b hover:bg-muted',
-                !expanded && 'justify-center',
-              )}
-            >
-              {expanded && <span className="text-sm">Workspace #1</span>}
+            <Tooltip delayDuration={0} disableHoverableContent>
+              <TooltipTrigger asChild>
+                <div
+                  className={cn(
+                    'flex items-center justify-between px-3 h-14 border-b hover:bg-muted',
+                    !expanded && 'justify-center h-12',
+                  )}
+                >
+                  {expanded && <span className="text-sm">Workspace #1</span>}
 
-              <CaretUpDown className="w-4 h-4" />
-            </div>
+                  <CaretUpDown className="w-4 h-4" />
+                </div>
+              </TooltipTrigger>
+
+              {!expanded && (
+                <TooltipContent side="right">workspace-name</TooltipContent>
+              )}
+            </Tooltip>
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent className="w-60">
+          <DropdownMenuContent
+            className={cn('w-60', !expanded && 'mt-1')}
+            side={expanded ? 'bottom' : 'right'}
+            align="start"
+          >
             <DropdownMenuItem>workspace #1</DropdownMenuItem>
             <DropdownMenuItem>workspace #2</DropdownMenuItem>
             <DropdownMenuItem>workspace #3</DropdownMenuItem>
@@ -167,46 +191,85 @@ export function Sidebar({ expanded }: SidebarProps) {
           >
             {expanded ? 'General' : 'G'}
           </span>
-          <button
-            type="button"
-            className={cn(
-              'flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted',
-              !expanded && 'justify-center',
+
+          <Tooltip delayDuration={0} disableHoverableContent>
+            <TooltipTrigger asChild>
+              <button
+                type="button"
+                className={cn(
+                  'flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted',
+                  !expanded && 'justify-center',
+                )}
+                onClick={handleNavigateToCollections}
+              >
+                <Cube size={16} />
+                {expanded && 'Collections'}
+              </button>
+            </TooltipTrigger>
+
+            {!expanded && (
+              <TooltipContent side="right">Collections</TooltipContent>
             )}
-          >
-            <Cube size={16} />
-            {expanded && 'Collections'}
-          </button>
-          <button
-            type="button"
-            className={cn(
-              'flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted',
-              !expanded && 'justify-center',
+          </Tooltip>
+
+          <Tooltip delayDuration={0} disableHoverableContent>
+            <TooltipTrigger asChild>
+              <button
+                type="button"
+                className={cn(
+                  'flex items-center justify-start gap-1.5 px-3 h-10 text-sm enable:hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed',
+                  !expanded && 'justify-center',
+                )}
+                onClick={handleNavigateToNotes}
+                disabled
+              >
+                <NoteBlank size={16} />
+                {expanded && 'Notes'}
+              </button>
+            </TooltipTrigger>
+
+            {!expanded && <TooltipContent side="right">Notes</TooltipContent>}
+          </Tooltip>
+
+          <Tooltip delayDuration={0} disableHoverableContent>
+            <TooltipTrigger asChild>
+              <button
+                type="button"
+                className={cn(
+                  'flex items-center justify-start gap-1.5 px-3 h-10 text-sm enable:hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed',
+                  !expanded && 'justify-center',
+                )}
+                disabled
+              >
+                <Database size={16} />
+                {expanded && 'Databases'}
+              </button>
+            </TooltipTrigger>
+
+            {!expanded && (
+              <TooltipContent side="right">Databases</TooltipContent>
             )}
-          >
-            <NoteBlank size={16} />
-            {expanded && 'Notes'}
-          </button>
-          <button
-            type="button"
-            className={cn(
-              'flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted',
-              !expanded && 'justify-center',
+          </Tooltip>
+
+          <Tooltip delayDuration={0} disableHoverableContent>
+            <TooltipTrigger asChild>
+              <button
+                type="button"
+                className={cn(
+                  'flex items-center justify-start gap-1.5 px-3 h-10 text-sm enable:hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed',
+                  !expanded && 'justify-center',
+                )}
+                disabled
+              >
+                <Lock size={16} />
+                {expanded && 'Passwords'}
+              </button>
+            </TooltipTrigger>
+
+            {!expanded && (
+              <TooltipContent side="right">Passwords</TooltipContent>
             )}
-          >
-            <Database size={16} />
-            {expanded && 'Databases'}
-          </button>
-          <button
-            type="button"
-            className={cn(
-              'flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted',
-              !expanded && 'justify-center',
-            )}
-          >
-            <Lock size={16} />
-            {expanded && 'Passwords'}
-          </button>
+          </Tooltip>
 
           <span
             className={cn(
@@ -216,16 +279,25 @@ export function Sidebar({ expanded }: SidebarProps) {
           >
             {expanded ? 'Workspace' : 'W'}
           </span>
-          <button
-            type="button"
-            className={cn(
-              'flex items-center justify-start gap-1.5 px-3 h-10 text-sm hover:bg-muted',
-              !expanded && 'justify-center',
+
+          <Tooltip delayDuration={0} disableHoverableContent>
+            <TooltipTrigger asChild>
+              <button
+                type="button"
+                className={cn(
+                  'flex items-center justify-start gap-1.5 px-3 h-10 text-sm enable:hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed',
+                  !expanded && 'justify-center',
+                )}
+              >
+                <Gear size={16} />
+                {expanded && 'Preferences'}
+              </button>
+            </TooltipTrigger>
+
+            {!expanded && (
+              <TooltipContent side="right">Preferences</TooltipContent>
             )}
-          >
-            <Gear size={16} />
-            {expanded && 'Preferences'}
-          </button>
+          </Tooltip>
         </div>
 
         {expanded && (
@@ -242,10 +314,10 @@ export function Sidebar({ expanded }: SidebarProps) {
               className={cn(
                 'border-t h-14 flex items-center gap-2 hover:bg-muted',
                 expanded && 'px-3',
-                !expanded && 'justify-center',
+                !expanded && 'justify-center h-12',
               )}
             >
-              <Avatar>
+              <Avatar className={cn(!expanded && 'w-9 h-9')}>
                 <AvatarImage src="https://github.com/shadcn.png" />
                 <AvatarFallback>JD</AvatarFallback>
               </Avatar>
@@ -265,7 +337,10 @@ export function Sidebar({ expanded }: SidebarProps) {
             </div>
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent className="w-60">
+          <DropdownMenuContent
+            className={cn('w-60', !expanded && 'mb-1')}
+            side={expanded ? 'top' : 'right'}
+          >
             <DropdownMenuItem onClick={handleNavigateToProfile}>
               Profile
             </DropdownMenuItem>

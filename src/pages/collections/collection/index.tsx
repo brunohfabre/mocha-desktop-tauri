@@ -16,10 +16,10 @@ import { Response } from './response'
 export function Collection() {
   return (
     <div className="flex-1 flex divide-x">
-      <div className="w-64 divide-y flex flex-col">
+      <div className="w-64 flex flex-col">
         <DropdownMenu>
           <DropdownMenuTrigger>
-            <div className="h-12 flex items-center justify-between pl-3 pr-2">
+            <div className="h-12 flex items-center justify-between pl-3 pr-2 border-b">
               <span className="text-sm">Collection name</span>
 
               <Button type="button" size="icon" variant="ghost">
@@ -128,7 +128,7 @@ export function Collection() {
 
         <DropdownMenu>
           <DropdownMenuTrigger>
-            <div className="h-12 flex items-center justify-between px-3">
+            <div className="h-12 flex items-center justify-between px-3 border-t">
               <span className="text-sm">Environment #2</span>
 
               <CaretDown className="w-4 h-4" weight="bold" />
