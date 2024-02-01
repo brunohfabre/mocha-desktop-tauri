@@ -8,20 +8,7 @@ import { cn } from '@/lib/utils'
 import { CaretLeft, CaretRight, X } from '@phosphor-icons/react'
 
 export function AppLayout() {
-  const [tabs, setTabs] = useState([
-    'Tab name',
-    'Tab name',
-    'Tab name',
-    'Tab name',
-    'Tab name',
-    'Tab name',
-    'Tab name',
-    'Tab name',
-    'Tab name',
-    'Tab name',
-    'Tab name',
-    'Tab name',
-  ])
+  const [tabs, setTabs] = useState(['Tab name'])
   const [selected, setSelected] = useState(0)
 
   return (
@@ -29,7 +16,7 @@ export function AppLayout() {
       <Sidebar />
 
       <div className="flex-1 flex flex-col">
-        <div className="flex items-center border-b h-14 pl-4 pr-2">
+        <div className="flex items-center border-b h-14 pl-2">
           <div className="mr-2">
             <Button type="button" size="icon" variant="ghost" className="w-6">
               <CaretLeft />
@@ -41,7 +28,7 @@ export function AppLayout() {
           </div>
 
           <ScrollArea className="flex-1 w-[64px]">
-            <div className="h-14 flex items-center">
+            <div className="h-14 flex items-center pr-2">
               {tabs.map((tab, index) => (
                 <Button
                   key={tab}

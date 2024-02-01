@@ -163,9 +163,9 @@ export function Sidebar() {
           </DropdownMenuTrigger>
 
           <DropdownMenuContent
-            className={cn('w-60', !expanded && 'mt-1')}
+            className={cn('w-[248px]', !expanded && 'mt-1')}
             side={expanded ? 'bottom' : 'right'}
-            align="start"
+            align={expanded ? 'center' : 'start'}
           >
             <DropdownMenuItem>workspace #1</DropdownMenuItem>
             <DropdownMenuItem>workspace #2</DropdownMenuItem>
@@ -338,7 +338,7 @@ export function Sidebar() {
           </DropdownMenuTrigger>
 
           <DropdownMenuContent
-            className={cn('w-60', !expanded && 'mb-1')}
+            className={cn('w-[248px]', !expanded && 'mb-1')}
             side={expanded ? 'top' : 'right'}
           >
             <DropdownMenuItem onClick={handleNavigateToProfile}>
