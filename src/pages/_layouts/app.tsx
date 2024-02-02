@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 import { CaretLeft, CaretRight, X } from '@phosphor-icons/react'
 
 export function AppLayout() {
-  const [tabs, setTabs] = useState(['Tab name'])
+  const [tabs] = useState(['Tab name'])
   const [selected, setSelected] = useState(0)
 
   return (
