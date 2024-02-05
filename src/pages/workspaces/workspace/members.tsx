@@ -122,7 +122,14 @@ export function Members() {
                 )}
               />
 
-              <div className="flex justify-end">
+              <div className="flex justify-end gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handleCloseAddMemberModal}
+                >
+                  Cancel
+                </Button>
                 <Button>Add member</Button>
               </div>
             </form>
@@ -180,6 +187,7 @@ export function Members() {
                 <Button
                   type="button"
                   onClick={() => setRemoveAlertDialogVisible(true)}
+                  variant="destructive"
                 >
                   Remove
                 </Button>
@@ -205,6 +213,7 @@ export function Members() {
                 <Button
                   type="button"
                   onClick={() => setRemoveAlertDialogVisible(true)}
+                  variant="destructive"
                 >
                   Remove
                 </Button>

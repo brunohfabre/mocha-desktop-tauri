@@ -79,6 +79,10 @@ export function Sidebar() {
     navigate('/notes')
   }
 
+  function handleNavigateToWorkspacePrefereces() {
+    navigate('/workspaces/123')
+  }
+
   function handleSignOut() {
     clearCredentials()
   }
@@ -217,7 +221,7 @@ export function Sidebar() {
               <button
                 type="button"
                 className={cn(
-                  'flex items-center justify-start gap-1.5 px-3 h-10 text-sm enable:hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed',
+                  'flex items-center justify-start gap-1.5 px-3 h-10 text-sm enabled:hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed',
                   !expanded && 'justify-center',
                 )}
                 onClick={handleNavigateToNotes}
@@ -236,7 +240,7 @@ export function Sidebar() {
               <button
                 type="button"
                 className={cn(
-                  'flex items-center justify-start gap-1.5 px-3 h-10 text-sm enable:hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed',
+                  'flex items-center justify-start gap-1.5 px-3 h-10 text-sm enabled:hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed',
                   !expanded && 'justify-center',
                 )}
                 disabled
@@ -256,7 +260,7 @@ export function Sidebar() {
               <button
                 type="button"
                 className={cn(
-                  'flex items-center justify-start gap-1.5 px-3 h-10 text-sm enable:hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed',
+                  'flex items-center justify-start gap-1.5 px-3 h-10 text-sm enabled:hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed',
                   !expanded && 'justify-center',
                 )}
                 disabled
@@ -285,11 +289,13 @@ export function Sidebar() {
               <button
                 type="button"
                 className={cn(
-                  'flex items-center justify-start gap-1.5 px-3 h-10 text-sm enable:hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed',
+                  'flex items-center justify-start gap-1.5 px-3 h-10 text-sm enabled:hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed',
                   !expanded && 'justify-center',
                 )}
+                onClick={handleNavigateToWorkspacePrefereces}
               >
                 <Gear size={16} />
+
                 {expanded && 'Preferences'}
               </button>
             </TooltipTrigger>
@@ -342,7 +348,7 @@ export function Sidebar() {
             side={expanded ? 'top' : 'right'}
           >
             <DropdownMenuItem onClick={handleNavigateToProfile}>
-              Profile
+              View profile
             </DropdownMenuItem>
             <DropdownMenuItem
               onClick={() => setSignOutAlertDialogVisible(true)}

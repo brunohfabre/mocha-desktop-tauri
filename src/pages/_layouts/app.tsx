@@ -1,15 +1,13 @@
-import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import { Sidebar } from '@/components/sidebar'
 import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
-import { cn } from '@/lib/utils'
-import { CaretLeft, CaretRight, X } from '@phosphor-icons/react'
+import { useTabsStore } from '@/stores/tabs'
+import { CaretLeft, CaretRight } from '@phosphor-icons/react'
 
 export function AppLayout() {
-  const [tabs] = useState(['Tab name'])
-  const [selected, setSelected] = useState(0)
+  const tabs = useTabsStore((state) => state.tabs)
 
   return (
     <div className="min-h-screen w-full flex antialiased">

@@ -27,6 +27,7 @@ import {
 export function PageHeader() {
   const { theme } = useTheme()
 
+  const user = useAuthStore((state) => state.user)
   const clearCredentials = useAuthStore((state) => state.clearCredentials)
 
   const [signOutAlertDialogVisible, setSignOutAlertDialogVisible] =
@@ -59,7 +60,10 @@ export function PageHeader() {
       </AlertDialog>
 
       <div className="border-b h-14 flex justify-between pr-3">
-        <Link to="/" className="h-14 flex items-center px-3">
+        <Link
+          to={user?.name ? '/' : '/create-name'}
+          className="h-14 flex items-center px-3"
+        >
           <img
             src={theme === 'light' ? LogoLightVector : LogoDarkVector}
             alt="Mocha"
