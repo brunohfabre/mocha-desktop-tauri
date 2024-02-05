@@ -5,6 +5,7 @@ import LogoDarkVector from '@/assets/logo-dark.png'
 import LogoLightVector from '@/assets/logo-light.png'
 import { cn } from '@/lib/utils'
 import { useAuthStore } from '@/stores/auth'
+import { useTabsStore } from '@/stores/tabs'
 import {
   CaretDown,
   Moon,
@@ -45,6 +46,8 @@ export function Sidebar() {
 
   const clearCredentials = useAuthStore((state) => state.clearCredentials)
 
+  const changeSelected = useTabsStore((state) => state.changeSelected)
+
   const [signOutAlertDialogVisible, setSignOutAlertDialogVisible] =
     useState(false)
   const [expanded, setExpanded] = useState(true)
@@ -59,28 +62,34 @@ export function Sidebar() {
 
   function handleNavigateToProfile() {
     navigate('/profile')
+    changeSelected('')
   }
 
   function handleNavigateToWorkspaces() {
     navigate('/workspaces')
+    changeSelected('')
   }
 
   function handleNavigateToCreateWorkspace() {
     navigate('/create-workspace')
+    changeSelected('')
   }
 
   function handleNavigateToCollections() {
     setExpanded(false)
     navigate('/collections')
+    changeSelected('')
   }
 
   function handleNavigateToNotes() {
     setExpanded(false)
     navigate('/notes')
+    changeSelected('')
   }
 
   function handleNavigateToWorkspacePrefereces() {
     navigate('/workspaces/123')
+    changeSelected('')
   }
 
   function handleSignOut() {

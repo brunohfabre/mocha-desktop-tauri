@@ -1,11 +1,9 @@
-import { ReactNode } from 'react'
-
 import { create } from 'zustand'
 
 export type Tab = {
   id: string
   label: string
-  content: ReactNode
+  content: string
   reference: string
 }
 
@@ -19,25 +17,25 @@ interface Store {
   changeSelected: (id: string) => void
 }
 
-export const useTabsStore = create<Store>((set, get) => ({
+export const useTabsStore = create<Store>((set) => ({
   tabs: [],
   selected: '',
 
   addTab: (data: Tab) => {
-    const tabs = get().tabs
-    const selected = get().selected
+    // const tabs = get().tabs
+    // const selected = get().selected
 
-    const findTabWithSameReference = tabs.find(
-      (tab) => tab.reference === data.reference,
-    )
+    // const findTabWithSameReference = tabs.find(
+    //   (tab) => tab.reference === data.reference,
+    // )
 
-    if (findTabWithSameReference && selected !== findTabWithSameReference.id) {
-      set(() => ({
-        selected: findTabWithSameReference.id,
-      }))
+    // if (findTabWithSameReference && selected !== findTabWithSameReference.id) {
+    //   set(() => ({
+    //     selected: findTabWithSameReference.id,
+    //   }))
 
-      return
-    }
+    //   return
+    // }
 
     set((state) => ({
       tabs: [...state.tabs, data],

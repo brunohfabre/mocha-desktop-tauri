@@ -21,7 +21,7 @@ export function Collections() {
       <CreateCollectionModal />
 
       <div className="flex-1 max-w-7xl w-full mx-auto flex flex-col p-4 gap-4">
-        <header className="flex justify-between">
+        <header className="flex justify-between items-center">
           <p className="text-lg font-semibold">Collections (5)</p>
 
           <Button type="button" onClick={handleOpenCreateCollectionModal}>

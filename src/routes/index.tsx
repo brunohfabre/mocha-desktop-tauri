@@ -16,6 +16,7 @@ import { Notes } from '@/pages/notes'
 import { PrivacyPolicy } from '@/pages/privacy-policy'
 import { Profile } from '@/pages/profile'
 import { SignIn } from '@/pages/sign-in'
+import { Tab } from '@/pages/tab'
 import { TermsOfService } from '@/pages/terms-of-service'
 import { Workspaces } from '@/pages/workspaces'
 import { CreateWorkspace } from '@/pages/workspaces/create-workspace'
@@ -76,6 +77,8 @@ export function Router() {
           <Route path="/notes" element={<Notes />} />
 
           <Route path="/collections/:id" element={<Collection />} />
+
+          <Route path="/tabs/:id" element={<Tab />} />
         </Route>
 
         <Route element={<InternalLayout />}>

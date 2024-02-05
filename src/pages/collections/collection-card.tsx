@@ -18,6 +18,7 @@ import {
   ContextMenuSeparator,
   ContextMenuTrigger,
 } from '@/components/ui/context-menu'
+import { useTabsStore } from '@/stores/tabs'
 import { CaretRight } from '@phosphor-icons/react'
 
 export function CollectionCard() {
@@ -25,10 +26,19 @@ export function CollectionCard() {
 
   const [, setSeachParams] = useSearchParams()
 
+  const addTab = useTabsStore((state) => state.addTab)
+
   const [deleteVisible, setDeleteVisible] = useState(false)
 
   function handleSelectWorkspace() {
-    navigate(`/collections/${window.crypto.randomUUID()}`)
+    addTab({
+      id: crypto.randomUUID(),
+      label: 'Collection',
+      content: 'collections',
+      reference: crypto.randomUUID(),
+    })
+
+    navigate('/')
   }
 
   function handleOpenEditModal() {
