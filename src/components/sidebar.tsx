@@ -316,10 +316,20 @@ export function Sidebar() {
         </div>
 
         {expanded && (
-          <div className="border rounded-lg mb-3 mx-3 p-3">
-            <p className="text-sm">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
+          <div className="border rounded-lg mb-3 mx-3 p-3 flex flex-col gap-4">
+            <div className="flex flex-col gap-1">
+              <strong className="text-base font-medium">
+                Premium account!
+              </strong>
+
+              <p className="text-sm text-gray-500">
+                Upgrade to premium account that allows more new features
+              </p>
+            </div>
+
+            <Button type="button" onClick={() => window.alert('coming soon')}>
+              Upgrade
+            </Button>
           </div>
         )}
 
