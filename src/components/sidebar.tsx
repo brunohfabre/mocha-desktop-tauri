@@ -327,7 +327,7 @@ export function Sidebar() {
               </p>
             </div>
 
-            <Button type="button" onClick={() => window.alert('coming soon')}>
+            <Button type="button" onClick={() => navigate('/upgrade')}>
               Upgrade
             </Button>
           </div>

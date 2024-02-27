@@ -18,6 +18,7 @@ import { Profile } from '@/pages/profile'
 import { SignIn } from '@/pages/sign-in'
 import { Tab } from '@/pages/tab'
 import { TermsOfService } from '@/pages/terms-of-service'
+import { Upgrade } from '@/pages/upgrade'
 import { Workspaces } from '@/pages/workspaces'
 import { CreateWorkspace } from '@/pages/workspaces/create-workspace'
 import { Workspace } from '@/pages/workspaces/workspace'
@@ -89,6 +90,7 @@ export function Router() {
           <Route path="/workspaces" element={<Workspaces />} />
           <Route path="/workspaces/:id" element={<Workspace />} />
           <Route path="/create-workspace" element={<CreateWorkspace />} />
+          <Route path="/upgrade" element={<Upgrade />} />
         </Route>
       </Route>
 
